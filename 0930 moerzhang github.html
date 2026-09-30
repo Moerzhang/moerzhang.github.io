@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>张高乐（Moerzhang）· 个人主页</title>
+<meta name="description" content="张高乐（Moerzhang）— 海外社媒 · 广告投放 · 内容增长，寻求 Remote 工作机会。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23F7F8FA'/%3E%3Crect width='32' height='32' rx='7' fill='none' stroke='%23E3E6EB'/%3E%3Cpath d='M7 10l9 6-9 6z' fill='%23C7741B'/%3E%3Cpath d='M17 22h8' stroke='%233E63C4' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+  :root {
+    --bg: #F5F2EB;
+    --surface: #FFFFFF;
+    --surface-2: #EDE8DD;
+    --border: #D9D2C3;
+    --text: #2A2724;
+    --muted: #6B6560;
+    --accent: #B73A2A;
+    --accent-2: #2D4A5E;
+    --radius: 10px;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, "Liberation Mono", monospace;
+    --sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Segoe UI", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 60px; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: var(--sans); line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: rgba(199, 116, 27, .22); }
+  a { color: var(--accent-2); text-decoration: none; transition: color .18s ease; }
+  a:hover { color: var(--accent); }
+  .container { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+  .mono { font-family: var(--mono); }
+
+  /* ============ 导航 ============ */
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(247, 248, 250, .92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between; height: 52px;
+  }
+  .brand { font-family: var(--mono); font-weight: 700; color: var(--text); letter-spacing: -.5px; font-size: 15px; }
+  .brand .dot { color: var(--accent); }
+  .nav-right { display: flex; align-items: center; gap: 20px; }
+  .nav-links { display: flex; gap: 20px; list-style: none; }
+  .nav-links a {
+    color: var(--muted); font-size: 13.5px;
+    padding: 4px 2px; border-bottom: 2px solid transparent;
+  }
+  .nav-links a:hover { color: var(--text); border-bottom-color: var(--accent); }
+  .lang-switch {
+    font-family: var(--mono); font-size: 12.5px; color: var(--muted);
+    background: var(--surface-2); border: 1px solid var(--border);
+    border-radius: 999px; padding: 3px 12px; cursor: pointer;
+    transition: all .18s ease;
+  }
+  .lang-switch:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ============ Hero ============ */
+  .hero {
+    position: relative; overflow: hidden;
+    background:
+      radial-gradient(1000px 420px at 88% -10%, rgba(199, 116, 27, .10), transparent 60%),
+      radial-gradient(800px 420px at 94% 110%, rgba(62, 99, 196, .08), transparent 55%),
+      linear-gradient(120deg, #FFFFFF 0%, #F7F8FA 68%, #FDF6EE 100%);
+  }
+  .hero-inner {
+    position: relative; z-index: 1; padding: 44px 0 40px;
+    display: flex; align-items: center; justify-content: space-between; gap: 40px;
+    width: 100%;
+  }
+  .hero-copy { flex: 1 1 480px; max-width: 520px; }
+  .hero-photo {
+    flex: none; width: min(280px, 32vw);
+    aspect-ratio: 3 / 4;
+    border-radius: 16px; overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: 0 18px 44px -18px rgba(36, 41, 47, .25);
+    background: var(--surface);
+  }
+  .hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 18%; display: block; }
+  .term-line {
+    font-family: var(--mono); font-size: 13.5px; color: var(--muted);
+    margin-bottom: 14px; display: flex; align-items: center; gap: 2px;
+  }
+  .term-line .prompt { color: var(--accent); font-weight: 700; margin-right: 6px; }
+  .cursor {
+    display: inline-block; width: 8px; height: 17px; margin-left: 5px;
+    background: var(--accent); vertical-align: -2px;
+    animation: blink 1.1s steps(2, start) infinite;
+  }
+  @keyframes blink { to { visibility: hidden; } }
+
+  .hero h1 {
+    font-size: clamp(36px, 6vw, 56px);
+    font-weight: 800; letter-spacing: -2px; line-height: 1.05;
+    color: #1F2328; margin-bottom: 10px;
+  }
+  .hero-role {
+    font-family: var(--mono); font-size: 14.5px; color: var(--accent);
+    margin-bottom: 14px;
+  }
+  .hero-role::before { content: "// "; color: var(--muted); }
+  .hero-desc {
+    color: var(--muted); font-size: 14.5px; max-width: 500px; margin-bottom: 20px; line-height: 1.65;
+  }
+  .hero-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 9px 18px; border-radius: var(--radius);
+    font-size: 14px; font-weight: 600; transition: all .18s ease;
+  }
+  .btn-primary { background: var(--accent); color: #FFFFFF; }
+  .btn-primary:hover { background: #B05E12; color: #FFFFFF; transform: translateY(-1px); }
+  .btn-ghost { border: 1px solid var(--border); color: var(--text); }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+
+  /* ============ 区块通用 ============ */
+  .section { padding: 40px 0; border-top: 1px solid var(--border); }
+  .section-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 22px; }
+  .section-index { font-family: var(--mono); font-size: 13px; color: var(--accent); }
+  .section-title { font-size: 22px; font-weight: 700; color: #1F2328; letter-spacing: -.5px; }
+
+  /* ============ 关于 ============ */
+  .about-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 32px; align-items: start; }
+  .about-text p { margin-bottom: 10px; color: var(--muted); font-size: 14px; line-height: 1.7; }
+  .about-text p strong { color: var(--text); font-weight: 600; }
+  .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .stat {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 12px 14px;
+  }
+  .stat-num { font-family: var(--mono); font-size: 22px; font-weight: 700; color: var(--accent); line-height: 1.2; }
+  .stat-label { font-size: 11.5px; color: var(--muted); margin-top: 2px; line-height: 1.4; }
+
+  /* ============ 技能 ============ */
+  .skill-groups { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .skill-group {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 14px 16px;
+  }
+  .skill-group h3 {
+    font-size: 13.5px; font-weight: 700; color: var(--text); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .skill-group h3 svg { flex: none; }
+  .tag-list { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    font-family: var(--mono); font-size: 11.5px; color: var(--text);
+    background: var(--surface-2); border: 1px solid var(--border);
+    border-radius: 999px; padding: 3px 10px;
+    transition: border-color .18s ease, color .18s ease;
+  }
+  .tag:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ============ 项目 ============ */
+  .project-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .project {
+    display: flex; flex-direction: column;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 16px;
+    color: var(--text);
+    transition: border-color .2s ease, transform .2s ease;
+  }
+  .project:hover { border-color: var(--accent); transform: translateY(-2px); color: var(--text); }
+  .project-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+  .project-icon { color: var(--accent); }
+  .project-arrow { color: var(--muted); opacity: 0; transform: translateX(-4px); transition: all .2s ease; }
+  .project:hover .project-arrow { opacity: 1; transform: translateX(0); color: var(--accent); }
+  .project h3 { font-size: 14.5px; font-weight: 700; color: #1F2328; margin-bottom: 5px; }
+  .project p { font-size: 12.5px; color: var(--muted); flex: 1; margin-bottom: 10px; line-height: 1.6; }
+  .project .tags { display: flex; flex-wrap: wrap; gap: 5px; }
+  .project .tag { font-size: 10.5px; padding: 2px 8px; }
+
+  /* ============ 经历时间轴 ============ */
+  .timeline { display: grid; grid-template-columns: 120px 28px 1fr; gap: 0; }
+  .tl-item { display: contents; }
+  .tl-time {
+    font-family: var(--mono); font-size: 12px; color: var(--muted);
+    padding: 10px 8px 10px 0; text-align: right; line-height: 1.4;
+  }
+  .tl-axis { display: flex; justify-content: center; }
+  .tl-node { position: relative; display: grid; place-items: center; }
+  .tl-dot {
+    width: 9px; height: 9px; border-radius: 50%;
+    background: var(--bg); border: 2.5px solid var(--accent);
+    z-index: 1;
+  }
+  .tl-line { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--border); }
+  .tl-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 12px 16px; margin: 4px 0 4px 12px;
+  }
+  .tl-card h3 { font-size: 14px; font-weight: 700; color: #1F2328; margin-bottom: 3px; }
+  .tl-card .tl-org { font-family: var(--mono); font-size: 11.5px; color: var(--accent-2); margin-bottom: 5px; }
+  .tl-card p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+  .sub-title {
+    font-family: var(--mono); font-size: 12px; letter-spacing: 2px;
+    color: var(--accent); margin: 0 0 10px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .sub-title::before {
+    content: ""; width: 18px; height: 1px; background: var(--accent);
+  }
+  .timeline + .sub-title { margin-top: 28px; }
+
+  /* ============ 联系 ============ */
+  .contact { text-align: center; }
+  .contact h2 { font-size: 24px; font-weight: 800; color: #1F2328; margin-bottom: 8px; letter-spacing: -.5px; }
+  .contact .contact-desc { color: var(--muted); margin-bottom: 20px; font-size: 14px; }
+  .contact-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 22px; }
+  .social-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .social-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13px; color: var(--muted);
+    padding: 6px 12px; border: 1px solid var(--border); border-radius: 999px;
+    transition: all .18s ease;
+  }
+  .social-link:hover { color: var(--accent); border-color: var(--accent); }
+
+  footer { border-top: 1px solid var(--border); padding: 20px 0 28px; }
+  .footer-inner {
+    display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;
+    font-family: var(--mono); font-size: 11.5px; color: var(--muted);
+  }
+
+  /* ============ 交互效果 ============ */
+  html.js [data-reveal] {
+    opacity: 0; transform: translateY(16px);
+    transition: opacity .55s ease, transform .55s ease;
+  }
+  html.js [data-reveal].is-visible { opacity: 1; transform: none; }
+  [data-reveal-delay="1"] { transition-delay: .06s; }
+  [data-reveal-delay="2"] { transition-delay: .12s; }
+  [data-reveal-delay="3"] { transition-delay: .18s; }
+
+  .nav-links a.active { color: var(--text); border-bottom-color: var(--accent); }
+
+  .back-top {
+    position: fixed; right: 20px; bottom: 20px; z-index: 60;
+    width: 38px; height: 38px; border-radius: 50%;
+    display: grid; place-items: center;
+    background: var(--surface); border: 1px solid var(--border);
+    color: var(--muted); cursor: pointer;
+    opacity: 0; pointer-events: none; transform: translateY(8px);
+    transition: opacity .25s ease, transform .25s ease, color .2s ease, border-color .2s ease;
+  }
+  .back-top.show { opacity: 1; pointer-events: auto; transform: none; }
+  .back-top:hover { color: var(--accent); border-color: var(--accent); }
+  .back-top:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  /* ============ 响应式 ============ */
+  @media (max-width: 860px) {
+    .skill-groups { grid-template-columns: 1fr 1fr; }
+    .project-grid { grid-template-columns: 1fr; }
+    .about-grid { grid-template-columns: 1fr; gap: 20px; }
+    .stats { grid-template-columns: 1fr 1fr; }
+    .section { padding: 32px 0; }
+  }
+  @media (max-width: 580px) {
+    .nav-links { gap: 14px; }
+    .nav-links a { font-size: 12.5px; }
+    .skill-groups { grid-template-columns: 1fr; }
+    .hero-inner { flex-direction: column; gap: 28px; padding: 36px 0 40px; }
+    .hero-copy { max-width: none; }
+    .hero-photo { width: min(240px, 72vw); }
+    .timeline { grid-template-columns: 1fr; }
+    .tl-time { text-align: left; padding: 12px 0 0; }
+    .tl-axis { display: none; }
+    .tl-card { margin: 4px 0 12px; }
+    .section-head { margin-bottom: 16px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    html.js [data-reveal] { opacity: 1; transform: none; transition: none; }
+    .cursor { animation: none; visibility: visible; }
+    .project, .btn, .back-top { transition: none; transform: none !important; }
+  }
+
+  /* ============ 跑马灯 ============ */
+  .marquee {
+    background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    overflow: hidden; padding: 12px 0;
+  }
+  .marquee-track {
+    display: flex; gap: 40px; white-space: nowrap;
+    animation: marquee 30s linear infinite;
+    font-family: var(--mono); font-size: 13px; color: var(--muted);
+  }
+  .marquee-track span { display: flex; align-items: center; gap: 8px; }
+  .marquee-track .dot { color: var(--accent); }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .tag { display: inline-flex; align-items: center; text-decoration: none; color: inherit; }
+  .tag:hover { opacity: 0.7; }
+  .project-arrow-link { display: flex; align-items: center; color: var(--accent); text-decoration: none; }
+
+  .wechat-qr { margin-top: 24px; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .wechat-qr img { width: 140px; height: auto; border-radius: 8px; border: 1px solid var(--border); }
+  .wechat-qr p { font-size: 13px; color: var(--muted); }
+
+  .contact-panel {
+    background: var(--accent); border-radius: 12px; padding: 40px 48px;
+    color: white; margin-bottom: 32px;
+  }
+  .contact-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 24px 0; border-bottom: 1px solid rgba(255,255,255,0.2);
+  }
+  .contact-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .contact-row:first-child { padding-top: 0; }
+  .contact-label {
+    font-family: var(--mono); font-size: 13px; letter-spacing: 2px;
+    opacity: 0.7;
+  }
+  .contact-value {
+    font-size: 28px; font-weight: 700; letter-spacing: -.5px;
+  }
+  .contact-value:hover { opacity: 0.9; }
+  @media (max-width: 640px) {
+    .contact-panel { padding: 24px; }
+    .contact-value { font-size: 18px; }
+  }
+
+  .contact-grid {
+    display: grid; grid-template-columns: 1fr 200px; gap: 40px;
+    align-items: center; max-width: 800px; margin: 0 auto;
+  }
+  .contact-right { display: flex; justify-content: center; }
+  .wechat-qr img { width: 160px; height: auto; border-radius: 8px; border: 1px solid var(--border); }
+  .wechat-qr p { font-size: 13px; color: var(--muted); margin-top: 8px; text-align: center; }
+  @media (max-width: 640px) {
+    .contact-grid { grid-template-columns: 1fr; gap: 24px; text-align: center; }
+  }
+
+  .contact-info { margin: 20px 0; display: flex; flex-direction: column; gap: 8px; }
+  .info-row { display: flex; align-items: center; gap: 12px; font-size: 14px; }
+  .info-label { font-family: var(--mono); font-size: 12px; color: var(--muted); width: 40px; letter-spacing: 1px; }
+  .info-value { color: var(--text); }
+  .copy-btn {
+    padding: 4px; border: 1px solid var(--border);
+    border-radius: 4px; background: var(--surface); cursor: pointer;
+    color: var(--muted); transition: all 0.2s; display: flex; align-items: center;
+  }
+  .copy-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+  .hobby-tags { display: flex; flex-wrap: nowrap; gap: 10px; justify-content: center; align-items: center; }
+  .hobby-tag {
+    padding: 6px 12px; background: var(--surface); border: 1px solid var(--border);
+    border-radius: 20px; font-size: 14px; color: var(--text);
+    transition: all 0.2s;
+  }
+  .hobby-tag:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+
+  .company-logos {
+    margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--border);
+    display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
+    gap: 12px; font-size: 14px; color: var(--muted);
+  }
+  .logo-item { font-weight: 500; color: var(--text); opacity: 0.7; transition: opacity 0.2s; }
+  .logo-item:hover { opacity: 1; }
+  .logo-divider { opacity: 0.4; }
+
+  .social-icons { display: flex; gap: 12px; margin-top: 20px; justify-content: center; }
+  .social-icon {
+    width: 40px; height: 40px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s;
+  }
+  .social-icon:hover { transform: translateY(-2px); }
+  .social-icon.email { background: var(--accent); color: white; }
+  .social-icon.github { background: var(--surface); border: 1px solid var(--border); color: var(--text); }
+
+  .photo-marquee {
+    width: 100%; max-width: 500px; overflow: hidden; mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  }
+  .photo-marquee-track {
+    display: flex; gap: 16px; animation: photo-scroll 25s linear infinite;
+  }
+  .photo-marquee:hover .photo-marquee-track { animation-play-state: paused; }
+  .photo-card {
+    flex-shrink: 0; width: 200px; height: 260px; border-radius: 12px; overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  }
+  .photo-card img {
+    width: 100%; height: 100%; object-fit: cover;
+  }
+  @keyframes photo-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @media (max-width: 768px) {
+    .photo-card { width: 160px; height: 200px; }
+  }
+
+  .company-logos {
+    margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--border);
+    display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
+    gap: 24px;
+  }
+  .company-logo { height: 22px; width: auto; opacity: 0.6; transition: opacity 0.2s; }
+  .company-logo:hover { opacity: 1; }
+  .logo-text { font-size: 14px; font-weight: 600; color: var(--text); opacity: 0.6; }
+  .logo-text:hover { opacity: 1; }
+</style>
+</head>
+<body>
+
+<!-- ===================== 导航 ===================== -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="#top">Moerzhang<span class="dot">_</span></a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="#about" data-i18n="nav.about">关于</a></li>
+        <li><a href="#skills" data-i18n="nav.skills">技能</a></li>
+        <li><a href="#doing" data-i18n="nav.doing">正在做</a></li>
+      <li><a href="#projects" data-i18n="nav.works">作品</a></li>
+        <li><a href="#experience" data-i18n="nav.exp">经历</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">联系</a></li>
+      </ul>
+      <button class="lang-switch" id="langSwitch">EN / 中</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ===================== Hero ===================== -->
+<header class="hero" id="top">
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <div class="term-line"><span class="prompt">$</span> <span class="cmd">whoami</span><span class="cursor"></span></div>
+      <h1 data-reveal data-i18n="hero.name">张高乐</h1>
+      <p class="hero-role" data-reveal data-i18n="hero.role">海外社媒 · 广告投放 · 内容增长</p>
+      <p class="hero-desc" data-reveal data-i18n="hero.desc">广播电视编导本科 + QS100 电影与文化管理硕士出身。聚焦海外社媒运营与内容营销。京东、快手、东风等多部 AIGC 头部 TVC 制片经验。曾服务 100+ 海外广告客户，单季度广告消耗超 50 万美金。参与 40+ 电影项目发行，累计票房破百亿。拥有腾讯、哔哩哔哩、猫眼、阿里巴巴等大厂履历。<br><br>正在寻找 Remote 工作机会。</p>
+      <div class="hero-actions" data-reveal>
+        <a class="btn btn-primary" href="#projects" data-i18n="hero.cta1">查看作品</a>
+        <a class="btn btn-ghost" href="#contact" data-i18n="hero.cta2">联系我</a>
+      </div>
+    </div>
+    <div class="photo-marquee" data-reveal data-reveal-delay="2">
+      <div class="photo-marquee-track">
+        <div class="photo-card"><img src="assets/portrait.jpg" alt="学士服照片"></div>
+        <div class="photo-card"><img src="assets/photo1.jpg" alt="旅行照片 1"></div>
+        <div class="photo-card"><img src="assets/photo2.jpg" alt="旅行照片 2"></div>
+        <div class="photo-card"><img src="assets/photo3.jpg" alt="旅行照片 3"></div>
+        <div class="photo-card"><img src="assets/photo4.jpg" alt="旅行照片 4"></div>
+        <!-- 复制一份做无缝滚动 -->
+        <div class="photo-card"><img src="assets/portrait.jpg" alt="学士服照片"></div>
+        <div class="photo-card"><img src="assets/photo1.jpg" alt="旅行照片 1"></div>
+        <div class="photo-card"><img src="assets/photo2.jpg" alt="旅行照片 2"></div>
+        <div class="photo-card"><img src="assets/photo3.jpg" alt="旅行照片 3"></div>
+        <div class="photo-card"><img src="assets/photo4.jpg" alt="旅行照片 4"></div>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- ===================== 跑马灯 ===================== -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span>海外社媒运营 <span class="dot">◆</span></span>
+    <span>内容营销 <span class="dot">◆</span></span>
+    <span>AIGC 内容生产 <span class="dot">◆</span></span>
+    <span>跨境电商 <span class="dot">◆</span></span>
+    <span>海外广告投放 <span class="dot">◆</span></span>
+    <span>视频制作 <span class="dot">◆</span></span>
+    
+    <span>Remote 友好 <span class="dot">◆</span></span>
+    <span>海外社媒运营 <span class="dot">◆</span></span>
+    <span>内容营销 <span class="dot">◆</span></span>
+    <span>AIGC 内容生产 <span class="dot">◆</span></span>
+    <span>跨境电商 <span class="dot">◆</span></span>
+    <span>海外广告投放 <span class="dot">◆</span></span>
+    <span>视频制作 <span class="dot">◆</span></span>
+    
+    <span>Remote 友好 <span class="dot">◆</span></span>
+  </div>
+</div>
+
+
+<!-- ===================== 关于 ===================== -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="section-index">01</span>
+      <h2 class="section-title" data-i18n="about.title">关于我</h2>
+    </div>
+    <div class="about-grid" data-reveal>
+      <div class="about-text">
+        <p data-i18n="about.p1">你好，我是张高乐（GitHub: Moerzhang），广播电视编导本科 + 英国南安普顿大学（QS Top 100）<strong>电影与文化管理硕士</strong>出身。早期深耕影视内容与制片领域，参与 40+ 电影项目发行，累计票房破百亿，拥有多部 AIGC 头部 TVC 制片经验；后转型海外营销与广告投放，在阿里国际站与金山（猎豹移动）积累了丰富的跨境客户服务与海外广告投放经验，服务 100+ 海外广告客户，单季度广告消耗超 50 万美金。</p>
+        <p data-i18n="about.p2">曾在腾讯、哔哩哔哩、猫眼、阿里等大厂历练。全英文工作环境流利，可独立负责海外社媒运营、内容制作、广告投放与跨文化商务沟通。正在寻找 Remote 的<strong>海外社媒、内容营销、AIGC</strong>相关岗位。</p>
+      </div>
+      <div class="stats">
+        <div class="stat" data-reveal>
+          <div class="stat-num" data-target="40" data-suffix="+">40+</div>
+          <div class="stat-label" data-i18n="about.s0a">参与电影发行项目</div>
+        </div>
+        <div class="stat" data-reveal data-reveal-delay="1">
+          <div class="stat-num" data-target="100" data-suffix="亿+">100亿+</div>
+          <div class="stat-label" data-i18n="about.s0b">累计参与票房</div>
+        </div>
+        <div class="stat" data-reveal data-reveal-delay="2">
+          <div class="stat-num" data-target="100" data-suffix="+">100+</div>
+          <div class="stat-label" data-i18n="about.s1">服务海外广告客户</div>
+        </div>
+        <div class="stat" data-reveal data-reveal-delay="3">
+          <div class="stat-num" data-target="50" data-suffix="万$+">50万$+</div>
+          <div class="stat-label" data-i18n="about.s2">单季度广告消耗</div>
+        </div>
+        <div class="stat" data-reveal data-reveal-delay="4">
+          <div class="stat-num" data-target="92" data-suffix="%">92%</div>
+          <div class="stat-label" data-i18n="about.s3">客户续约率</div>
+        </div>
+        <div class="stat" data-reveal data-reveal-delay="5">
+          <div class="stat-num" data-target="50" data-suffix="w+">50w+</div>
+          <div class="stat-label" data-i18n="about.s4">内容全网曝光</div>
+        </div>
+      </div>
+    </div>
+    <div class="company-logos" data-reveal>
+      <span class="logo-item">腾讯</span>
+      <span class="logo-divider">·</span>
+      <span class="logo-item">哔哩哔哩</span>
+      <span class="logo-divider">·</span>
+      <span class="logo-item">猫眼</span>
+      <span class="logo-divider">·</span>
+      <span class="logo-item">阿里巴巴</span>
+      <span class="logo-divider">·</span>
+      <span class="logo-item">猎豹移动</span>
+      <span class="logo-divider">·</span>
+      <span class="logo-item">京东</span>
+      <span class="logo-divider">·</span>
+      <span class="logo-item">快手</span>
+      <span class="logo-divider">·</span>
+      <span class="logo-item">东风</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 技能 ===================== -->
+<section class="section" id="skills">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="section-index">02</span>
+      <h2 class="section-title" data-i18n="skills.title">核心能力</h2>
+    </div>
+    <div class="skill-groups">
+      <div class="skill-group" data-reveal>
+        <h3>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C7741B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg>
+          <span data-i18n="skills.g1">海外社媒与广告</span>
+        </h3>
+        <div class="tag-list">
+          <span class="tag">Facebook</span><span class="tag">TikTok</span>
+          <span class="tag">Google Ads</span><span class="tag">Instagram</span>
+          <span class="tag">广告投放优化</span><span class="tag">账户运营</span>
+        </div>
+      </div>
+      <div class="skill-group" data-reveal data-reveal-delay="1">
+        <h3>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C7741B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+          <span data-i18n="skills.g2">内容营销与品牌</span>
+        </h3>
+        <div class="tag-list">
+          <span class="tag">内容策略</span><span class="tag">多平台矩阵运营</span>
+          <span class="tag">视频制作</span><span class="tag">文案策划</span>
+          <span class="tag">品牌推广</span><span class="tag">KOL 合作</span>
+        </div>
+      </div>
+      <div class="skill-group" data-reveal data-reveal-delay="2">
+        <h3>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C7741B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-5"/></svg>
+          <span data-i18n="skills.g3">增长与数据驱动</span>
+        </h3>
+        <div class="tag-list">
+          <span class="tag">客户拓展</span><span class="tag">转化率优化</span>
+          <span class="tag">数据分析</span><span class="tag">跨团队协作</span>
+          <span class="tag">项目管理</span><span class="tag">英语商务沟通</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== 正在做 ===================== -->
+<section class="section" id="doing">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="section-index">03</span>
+      <h2 class="section-title" data-i18n="doing.title">正在做</h2>
+    </div>
+    <div class="project-grid">
+      <div class="project" data-reveal>
+        <div class="project-top">
+          <svg class="project-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          <a href="https://www.xiaohongshu.com/user/profile/6904e19c000000003201d636?xsec_token=AB2Z8XreEMTCO1cXm3qnUg3eE9pwNhahz-NbvtxKp4UdA%3D&xsec_source=pc_search" target="_blank" rel="noopener" class="project-arrow-link">
+            <svg class="project-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+        <h3>自媒体</h3>
+        <p>小红书 / 抖音 内容创作与运营，分享营销、出海与个人成长。</p>
+        <div class="tags">
+          <a class="tag" href="https://www.xiaohongshu.com/user/profile/6904e19c000000003201d636?xsec_token=AB2Z8XreEMTCO1cXm3qnUg3eE9pwNhahz-NbvtxKp4UdA%3D&xsec_source=pc_search" target="_blank" rel="noopener">小红书 →</a>
+          <a class="tag" href="https://v.douyin.com/Jc_jZuZGmHU/" target="_blank" rel="noopener">抖音 →</a>
+        </div>
+      </div>
+      <div class="project" data-reveal data-reveal-delay="1">
+        <div class="project-top">
+          <svg class="project-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3>家居品牌出海独立站</h3>
+        <p>从 0 到 1 搭建家居品牌独立站，负责品牌定位、选品、内容与海外投放。</p>
+        <div class="tags">
+          <span class="tag">独立站</span><span class="tag">跨境电商</span><span class="tag">家居</span>
+        </div>
+      </div>
+      <div class="project" data-reveal data-reveal-delay="2">
+        <div class="project-top">
+          <svg class="project-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        </div>
+        <h3>服装买手独立站供应链招商</h3>
+        <p>男装站 Projectisr + 女装站 Ssequence，供应链招商与对接，连接优质工厂与海外买家。</p>
+        <div class="tags">
+          <a class="tag" href="https://Projectisr.com" target="_blank" rel="noopener">Projectisr 男装 →</a>
+          <a class="tag" href="https://Ssequence.com" target="_blank" rel="noopener">Ssequence 女装 →</a>
+        </div>
+      </div>
+      <div class="project" data-reveal data-reveal-delay="3">
+        <div class="project-top">
+          <svg class="project-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3>手搓 AI 效率社区</h3>
+        <p>时间管理极客，起念：时间对于每个人都是公平的。正在从零搭建一个分享 AI 效率工具与方法的社区。</p>
+        <div class="tags">
+          <span class="tag">AI 效率</span><span class="tag">时间管理</span><span class="tag">社区</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== 爱好 ===================== -->
+<section class="section" id="hobbies">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="section-index">04</span>
+      <h2 class="section-title" data-i18n="hobbies.title">一点爱好</h2>
+    </div>
+    <div class="hobby-tags" data-reveal>
+      <span class="hobby-tag">八字 📿</span>
+      <span class="hobby-tag">玄学 ☯️</span>
+      <span class="hobby-tag">Hiphop 🕶️</span>
+      <span class="hobby-tag">脱口秀 🎤</span>
+      <span class="hobby-tag">DIY ✂️</span>
+      <span class="hobby-tag">AI 漫剧 🤖</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 经历 ===================== -->
+<section class="section" id="experience">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="section-index">05</span>
+      <h2 class="section-title" data-i18n="exp.title">工作经历</h2>
+    </div>
+
+    <div class="timeline" data-reveal>
+      <div class="tl-item">
+        <div class="tl-time">2025.08 — 2026.04</div>
+        <div class="tl-axis"><div class="tl-node"><span class="tl-dot"></span><span class="tl-line"></span></div></div>
+        <div class="tl-card">
+          <h3 data-i18n="exp.j1.title">海外业务策略专家</h3>
+          <div class="tl-org">北京金山安全网络科技</div>
+          <p data-i18n="exp.j1.desc">拓展 Facebook、TikTok、Google 等海外平台广告合作，服务电商、游戏、短剧等行业客户；拓展 100+ 合作客户，单季度广告消耗突破 15 万美金。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">2024.11 — 2025.08</div>
+        <div class="tl-axis"><div class="tl-node"><span class="tl-dot"></span><span class="tl-line"></span></div></div>
+        <div class="tl-card">
+          <h3 data-i18n="exp.j2.title">高级客户经理</h3>
+          <div class="tl-org">阿里巴巴（国际站）</div>
+          <p data-i18n="exp.j2.desc">服务 40+ 外贸企业客户，客户续约率 92%，3 家成长为行业金牌供应商；运营客户经理新媒体矩阵，获评上海区域 TOP2% 优质账号，单条内容 5w+ 曝光；每周 300+ 电销触达，转化率超均值 30%。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">2023.11 — 2024.11</div>
+        <div class="tl-axis"><div class="tl-node"><span class="tl-dot"></span><span class="tl-line"></span></div></div>
+        <div class="tl-card">
+          <h3 data-i18n="exp.j3.title">影视内容营销与商务运营</h3>
+          <div class="tl-org">猫眼影业</div>
+          <p data-i18n="exp.j3.desc">负责上海 80+ 家影城的电影宣传发行与商务合作，主导 40+ 电影项目发行与 400+ 次合作谈判，参与发行影片累计票房过百亿，覆盖《年会不能停》《金手指》《飞驰人生2》等头部影片；统筹首映礼、路演活动。</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="sub-title" data-reveal data-reveal-delay="1" data-i18n="exp.intern">实习经历</h3>
+    <div class="timeline" data-reveal data-reveal-delay="1">
+      <div class="tl-item">
+        <div class="tl-time">2023.08 — 2023.11</div>
+        <div class="tl-axis"><div class="tl-node"><span class="tl-dot"></span><span class="tl-line"></span></div></div>
+        <div class="tl-card">
+          <h3 data-i18n="exp.i1.title">内容运营</h3>
+          <div class="tl-org">Bilibili</div>
+          <p data-i18n="exp.i1.desc">负责 B 站官方微信视频号及矩阵号的内容运营与视频后期制作，协助官方直播筹备与粉丝互动。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">2020.11 — 2022.05</div>
+        <div class="tl-axis"><div class="tl-node"><span class="tl-dot"></span><span class="tl-line"></span></div></div>
+        <div class="tl-card">
+          <h3 data-i18n="exp.i2.title">影迷团运营与品牌营销</h3>
+          <div class="tl-org">IMAX</div>
+          <p data-i18n="exp.i2.desc">负责全国 69 个 IMAX Squad 城市影迷团的运营管理，参与影片宣传与线上线下营销活动策划，产出 Web 3.0 与影视行业融合研究报告。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">2020.08 — 2020.12</div>
+        <div class="tl-axis"><div class="tl-node"><span class="tl-dot"></span><span class="tl-line"></span></div></div>
+        <div class="tl-card">
+          <h3 data-i18n="exp.i3.title">内容运营</h3>
+          <div class="tl-org">掌阅科技</div>
+          <p data-i18n="exp.i3.desc">运营 275 万粉丝微博账号及 6 个快手矩阵账号，负责文案、视频剪辑、海报制作与直播策划。</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="sub-title" data-reveal data-reveal-delay="2" data-i18n="exp.edu">教育经历</h3>
+    <div class="timeline" data-reveal data-reveal-delay="2">
+      <div class="tl-item">
+        <div class="tl-time">2022.09 — 2023.11</div>
+        <div class="tl-axis"><div class="tl-node"><span class="tl-dot"></span><span class="tl-line"></span></div></div>
+        <div class="tl-card">
+          <h3 data-i18n="exp.e1.title">电影与文化管理 · 硕士</h3>
+          <div class="tl-org">南安普顿大学（英国）</div>
+          <p data-i18n="exp.e1.desc">校 China Social Media 办公室成员，负责学校官方公众号及微博宣传视频的策划、拍摄与剪辑。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">2017.09 — 2021.06</div>
+        <div class="tl-axis"><div class="tl-node"><span class="tl-dot"></span><span class="tl-line"></span></div></div>
+        <div class="tl-card">
+          <h3 data-i18n="exp.e2.title">广播电视编导 · 本科</h3>
+          <div class="tl-org">四川音乐学院</div>
+          <p data-i18n="exp.e2.desc">获校级一等奖学金、校优秀毕业生。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 作品 ===================== -->
+<section class="section" id="projects">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="section-index">06</span>
+      <h2 class="section-title" data-i18n="works.title">代表作品</h2>
+    </div>
+    <div class="project-grid">
+      <a class="project" href="https://youtu.be/Mhdak5TWCC8" target="_blank" rel="noopener" data-reveal>
+        <div class="project-top">
+          <svg class="project-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          <svg class="project-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+        </div>
+        <h3 data-i18n="works.w1">《四天后的四年》</h3>
+        <p data-i18n="works.p1">导演 · 编剧 · 制片 · 剪辑。四川省大学生原创影视推优活动剧情片二等奖。</p>
+        <div class="tags">
+          <span class="tag">导演</span><span class="tag">编剧</span><span class="tag">短片</span>
+        </div>
+      </a>
+      <a class="project" href="https://youtu.be/3axkP-B08H4" target="_blank" rel="noopener" data-reveal data-reveal-delay="1">
+        <div class="project-top">
+          <svg class="project-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          <svg class="project-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+        </div>
+        <h3 data-i18n="works.w2">《戏真一场》</h3>
+        <p data-i18n="works.p2">总制片。影视制片管理专业课期末最高分 97.9。</p>
+        <div class="tags">
+          <span class="tag">制片</span><span class="tag">短片</span>
+        </div>
+      </a>
+      <a class="project" href="https://www.xinpianchang.com/a10458288" target="_blank" rel="noopener" data-reveal data-reveal-delay="2">
+        <div class="project-top">
+          <svg class="project-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          <svg class="project-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+        </div>
+        <h3 data-i18n="works.w3">《狐狸爷爷的礼物》</h3>
+        <p data-i18n="works.p3">制片助理。腾讯新闻"追光吧，少年"剧情单元金奖。</p>
+        <div class="tags">
+          <span class="tag">制片</span><span class="tag">短片</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 联系 ===================== -->
+<section class="section contact" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-left">
+        <h2 data-reveal data-i18n="contact.title">一起做点什么？</h2>
+        <p class="contact-desc" data-reveal data-reveal-delay="1" data-i18n="contact.desc">无论是 Remote 工作机会、海外社媒运营还是内容营销合作，都欢迎随时联系。</p>
+
+        <div class="contact-info" data-reveal data-reveal-delay="3">
+          <div class="info-row">
+            <span class="info-label">TEL</span>
+            <span class="info-value" id="tel-text">153 9005 8689</span>
+            <button class="copy-btn" onclick="copyText('15390058689', this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+          </div>
+          <div class="info-row">
+            <span class="info-label">MAIL</span>
+            <span class="info-value">zhangmoer1998@163.com</span>
+            <button class="copy-btn" onclick="copyText('zhangmoer1998@163.com', this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+          </div>
+          <div class="info-row">
+            <span class="info-label">BASE</span>
+            <span class="info-value">中国·四川·成都 · Chengdu, China</span>
+          </div>
+        </div>
+        <div class="social-icons" data-reveal data-reveal-delay="3">
+          <a href="mailto:zhangmoer1998@163.com" class="social-icon email" title="Email">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg>
+          </a>
+          <a href="https://github.com/Moerzhang" target="_blank" rel="noopener" class="social-icon github" title="GitHub">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.78 0c2.2-1.49 3.16-1.18 3.16-1.18.63 1.59.24 2.76.12 3.05.74.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.38-5.25 5.67.41.35.77 1.05.77 2.12 0 1.53-.01 2.76-.01 3.14 0 .31.21.67.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="contact-right" data-reveal data-reveal-delay="2">
+        <div class="wechat-qr">
+          <img src="assets/wechat-qr.png" alt="微信二维码" />
+          <p data-i18n="contact.qr">扫码加我微信</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <span>© <span id="year">2026</span> 张高乐（Moerzhang）</span>
+    <span>/* <span data-i18n="footer.tag">海外社媒 · 广告投放 · 内容增长</span> */</span>
+  </div>
+</footer>
+
+<button id="backTop" class="back-top" aria-label="Back to top">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+
+<script>
+(function () {
+  'use strict';
+  document.documentElement.classList.add('js');
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ===== 多语言字典 =====
+  var i18n = {
+    zh: {
+      'nav.about': '关于', 'nav.skills': '技能', 'nav.doing': '正在做', 'nav.works': '作品', 'nav.exp': '经历', 'nav.contact': '联系',
+      'hero.role': '海外社媒 · 广告投放 · 内容增长',
+      'hero.name': '张高乐',
+      'hero.desc': '广播电视编导本科 + QS100 电影与文化管理硕士出身。聚焦海外社媒运营与内容营销。京东、快手、东风等多部 AIGC 头部 TVC 制片经验。曾服务 100+ 海外广告客户，单季度广告消耗超 50 万美金。参与 40+ 电影项目发行，累计票房破百亿。拥有腾讯、哔哩哔哩、猫眼、阿里巴巴等大厂履历。<br><br>正在寻找 Remote 工作机会。',
+      'hero.cta1': '查看作品', 'hero.cta2': '联系我',
+      'about.title': '关于我',
+      'about.p1': '你好，我是张高乐（GitHub: Moerzhang），广播电视编导本科 + 英国南安普顿大学（QS Top 100）<strong>电影与文化管理硕士</strong>出身。早期深耕影视内容与制片领域，参与 40+ 电影项目发行，累计票房破百亿，拥有多部 AIGC 头部 TVC 制片经验；后转型海外营销与广告投放，在阿里国际站与金山（猎豹移动）积累了丰富的跨境客户服务与海外广告投放经验，服务 100+ 海外广告客户，单季度广告消耗超 50 万美金。',
+      'about.p2': '曾在腾讯、哔哩哔哩、猫眼、阿里等大厂历练。全英文工作环境流利，可独立负责海外社媒运营、内容制作、广告投放与跨文化商务沟通。正在寻找 Remote 的<strong>海外社媒、内容营销、AIGC</strong>相关岗位。',
+      'about.s0a': '参与电影发行项目',
+      'about.s0b': '累计参与票房',
+      'about.s1': '服务海外广告客户', 'about.s2': '单季度广告消耗', 'about.s3': '客户续约率', 'about.s4': '内容全网曝光',
+      'skills.title': '核心能力',
+      'doing.title': '正在做',
+      'hobbies.title': '一点爱好',
+      'skills.g1': '海外社媒与广告', 'skills.g2': '内容营销与品牌', 'skills.g3': '增长与数据驱动',
+      'exp.title': '工作经历',
+      'exp.j1.title': '海外业务策略专家',
+      'exp.j1.desc': '拓展 Facebook、TikTok、Google 等海外平台广告合作，服务电商、游戏、短剧等行业客户；拓展 100+ 合作客户，单季度广告消耗突破 15 万美金。',
+      'exp.j2.title': '高级客户经理',
+      'exp.j2.desc': '服务 40+ 外贸企业客户，客户续约率 92%，3 家成长为行业金牌供应商；运营客户经理新媒体矩阵，获评上海区域 TOP2% 优质账号，单条内容 5w+ 曝光；每周 300+ 电销触达，转化率超均值 30%。',
+      'exp.j3.title': '影视内容营销与商务运营',
+      'exp.j3.desc': '负责上海 80+ 家影城的电影宣传发行与商务合作，主导 40+ 电影项目发行与 400+ 次合作谈判，覆盖《年会不能停》《金手指》《飞驰人生2》等头部影片；统筹首映礼、路演活动。',
+      'exp.intern': '实习经历',
+      'exp.i1.title': '内容运营', 'exp.i1.desc': '负责 B 站官方微信视频号及矩阵号的内容运营与视频后期制作，协助官方直播筹备与粉丝互动。',
+      'exp.i2.title': 'Film & Theatre & Branding Marketing', 'exp.i2.desc': '负责全国 69 个 IMAX Squad 城市影迷团的运营管理，参与影片宣传与线上线下营销活动策划，产出 Web 3.0 与影视行业融合研究报告。',
+      'exp.i3.title': '内容运营', 'exp.i3.desc': '运营 275 万粉丝微博账号及 6 个快手矩阵账号，负责文案、视频剪辑、海报制作与直播策划。',
+      'exp.edu': '教育经历',
+      'exp.e1.title': '电影与文化管理 · 硕士', 'exp.e1.desc': '校 China Social Media 办公室成员，负责学校官方公众号及微博宣传视频的策划、拍摄与剪辑。',
+      'exp.e2.title': '广播电视编导 · 本科', 'exp.e2.desc': '获校级一等奖学金、校优秀毕业生。',
+      'works.title': '代表作品',
+      'works.w1': '《四天后的四年》',
+      'works.p1': '导演 · 编剧 · 制片 · 剪辑。四川省大学生原创影视推优活动剧情片二等奖。',
+      'works.w2': '《戏真一场》',
+      'works.p2': '总制片。影视制片管理专业课期末最高分 97.9。',
+      'works.w3': '《狐狸爷爷的礼物》',
+      'works.p3': '制片助理。腾讯新闻"追光吧，少年"剧情单元金奖。',
+      'contact.title': '一起做点什么？',
+      'contact.desc': '无论是 Remote 工作机会、海外社媒运营还是内容营销合作，都欢迎随时联系。',
+      'contact.email': '发邮件给我', 'contact.email2': '邮箱',
+      'contact.qr': '扫码加我微信',
+      'footer.tag': '海外社媒 · 广告投放 · 内容增长'
+    },
+    en: {
+      'nav.about': 'About', 'nav.skills': 'Skills', 'nav.doing': 'Doing', 'nav.works': 'Works', 'nav.exp': 'Experience', 'nav.contact': 'Contact',
+      'hero.role': 'Social Media · Marketing · Growth',
+      'hero.name': 'Gaole Zhang',
+      'hero.desc': 'BA in Broadcasting & TV Directing + MA in Film & Cultural Management (QS Top 100). Focused on overseas social media & content marketing. Produced AIGC TVC campaigns for JD, Kuaishou, Dongfeng and other top brands. Served 100+ overseas ad clients with $500K+ quarterly ad spend. Worked on 40+ film releases with combined box office exceeding 10B RMB. Previously at Tencent, Bilibili, Maoyan, and Alibaba.
+
+Open to remote opportunities.',
+      'hero.cta1': 'View Works', 'hero.cta2': 'Get in Touch',
+      'about.title': 'About Me',
+      'about.p1': "Hi, I'm Zhang Gaole (GitHub: Moerzhang). BA in Broadcasting & TV Directing + MA in Film & Cultural Management from University of Southampton (QS Top 100). Started in film production Hi, I'm Zhang Gaole (GitHub: Moerzhang), a <strong>social media & marketing</strong> specialist focused on cross-border e-commerce, overseas advertising, and content growth. Master's from University of Southampton, fluent in English — experienced in running overseas social media accounts, ad campaigns, and cross-cultural business communication. distribution, worked on 40+ film releases with 10B+ RMB combined box office; later transitioned to overseas marketing & content growth, producing multiple top AIGC TVC campaigns.",
+      'about.p2': 'Previously at Tencent, Bilibili, Maoyan, and Alibaba. Fluent in English — experienced in overseas social media management, content production, ad campaigns, and cross-cultural business communication. Currently looking for remote <strong>social media marketing, content marketing, and AIGC</strong> roles.',
+      'about.s1': 'Overseas Ad Clients', 'about.s2': 'Quarterly Ad Spend', 'about.s3': 'Client Renewal Rate', 'about.s4': 'Single Post Reach',
+      'skills.title': 'Core Skills',
+      'doing.title': 'Currently Doing',
+      'hobbies.title': 'Things I Love',
+      'skills.g1': 'Social Media & Ads', 'skills.g2': 'Content & Brand', 'skills.g3': 'Growth & Data',
+      'exp.title': 'Work Experience',
+      'exp.j1.title': 'Overseas Business Strategy Specialist',
+      'exp.j1.desc': 'Grew ad partnerships across Facebook, TikTok, and Google for e-commerce, gaming, and short-drama clients. Acquired 100+ clients and drove $150K+ quarterly ad spend.',
+      'exp.j2.title': 'Senior Key Account Manager',
+      'exp.j2.desc': 'Managed 40+ foreign-trade enterprise clients with 92% renewal rate; 3 clients grew to industry gold suppliers. Ran new-media matrix ranked Top 2% in Shanghai region; single post hit 50K+ reach. 300+ weekly cold calls with 30% above-average conversion.',
+      'exp.j3.title': 'Content Marketing & Business Operations',
+      'exp.j3.desc': 'Handled marketing and business partnerships for 80+ cinemas in Shanghai. Led distribution for 40+ films with combined box office exceeding 10 billion RMB, including major blockbusters; managed 400+ partnership negotiations and premiere events.',
+      'exp.intern': 'Internships',
+      'exp.i1.title': 'Content Operations', 'exp.i1.desc': 'Ran Bilibili official WeChat video accounts, including content planning, video editing, and live stream support.',
+      'exp.i2.title': 'Film & Theatre & Branding Marketing', 'exp.i2.desc': "Managed IMAX Squad fan clubs across 69 Chinese cities; planned online/offline marketing campaigns and produced a Web3.0 & film industry research report.",
+      'exp.i3.title': 'Content Operations', 'exp.i3.desc': 'Ran a 2.75M-follower Weibo account and 6 Kuaishou matrix accounts — writing, video editing, poster design, and live planning.',
+      'exp.edu': 'Education',
+      'exp.e1.title': 'MA, Film & Cultural Management', 'exp.e1.desc': "Member of China Social Media Office — planned and produced promotional videos for the university's official WeChat and Weibo.",
+      'exp.e2.title': 'BA, Broadcasting & TV Directing', 'exp.e2.desc': 'University first-class scholarship, Outstanding Graduate.',
+      'works.title': 'Selected Works',
+      'works.w1': 'Four Years After Four Days',
+      'works.p1': 'Director · Writer · Producer · Editor. Won 2nd Prize at Sichuan Student Film Festival.',
+      'works.w2': 'A Real Performance',
+      'works.p2': 'Head Producer. Highest grade 97.9 in film production management.',
+      'works.w3': "Grandpa Fox's Gift",
+      'works.p3': 'Production Assistant. Gold Award at Tencent News "Chase the Light, Youth" drama unit.',
+      'contact.title': "Let's Work Together",
+      'contact.desc': 'Open to remote opportunities, social media, or content marketing collaborations.',
+      'contact.email': 'Email Me', 'contact.email2': 'Email',
+      'contact.qr': 'Scan to add WeChat',
+      'footer.tag': 'Social Media · Marketing · Growth'
+    }
+  };
+
+  var currentLang = 'zh';
+
+  function applyLang(lang) {
+    currentLang = lang;
+    document.documentElement.lang = (lang === 'zh') ? 'zh-CN' : 'en';
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n');
+      if (i18n[lang][key] !== undefined) {
+        el.innerHTML = i18n[lang][key];
+      }
+    });
+  }
+
+  document.getElementById('langSwitch').addEventListener('click', function () {
+    applyLang(currentLang === 'zh' ? 'en' : 'zh');
+  });
+
+  // ===== Hero 编排：命令逐字打出，随后内容依次显现 =====
+  var cmdEl = document.querySelector('.term-line .cmd');
+  var heroReveals = document.querySelectorAll('.hero [data-reveal]');
+  if (cmdEl && heroReveals.length) {
+    var cmdText = 'whoami';
+    if (reduceMotion) {
+      cmdEl.textContent = cmdText;
+      heroReveals.forEach(function (el) { el.classList.add('is-visible'); });
+    } else {
+      cmdEl.textContent = '';
+      var i = 0;
+      (function tick() {
+        if (i < cmdText.length) {
+          cmdEl.textContent = cmdText.slice(0, ++i);
+          setTimeout(tick, 60);
+        } else {
+          heroReveals.forEach(function (el, idx) {
+            setTimeout(function () { el.classList.add('is-visible'); }, idx * 80);
+          });
+        }
+      })();
+    }
+  }
+
+  // ===== 滚动显现 =====
+  var revealIO = ('IntersectionObserver' in window)
+    ? new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            revealIO.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -28px 0px' })
+    : null;
+  document.querySelectorAll('.section [data-reveal]').forEach(function (el) {
+    if (revealIO) { revealIO.observe(el); } else { el.classList.add('is-visible'); }
+  });
+
+  // ===== 统计数字滚动计数 =====
+  function animateCounter(el) {
+    var target = parseInt(el.getAttribute('data-target'), 10) || 0;
+    var suffix = el.getAttribute('data-suffix') || '';
+    if (reduceMotion) { el.textContent = target + suffix; return; }
+    var duration = 900, start = null;
+    function step(now) {
+      if (start === null) start = now;
+      var p = Math.min((now - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * eased) + suffix;
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  var countIO = ('IntersectionObserver' in window)
+    ? new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) { animateCounter(entry.target); countIO.unobserve(entry.target); }
+        });
+      }, { threshold: 0.6 })
+    : null;
+  document.querySelectorAll('.stat-num[data-target]').forEach(function (el) {
+    if (countIO) { countIO.observe(el); } else { animateCounter(el); }
+  });
+
+  // ===== 导航高亮 =====
+  var navLinks = document.querySelectorAll('.nav-links a');
+  function setActive(id) {
+    navLinks.forEach(function (link) {
+      link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+    });
+  }
+  if ('IntersectionObserver' in window) {
+    var spyIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) setActive(entry.target.id);
+      });
+    }, { rootMargin: '-42% 0px -52% 0px', threshold: 0 });
+    ['top', 'about', 'skills', 'doing', 'hobbies', 'projects', 'experience', 'contact'].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) spyIO.observe(el);
+    });
+  }
+
+  // ===== 返回顶部 =====
+  var backTop = document.getElementById('backTop');
+  if (backTop) {
+    window.addEventListener('scroll', function () {
+      backTop.classList.toggle('show', window.scrollY > 480);
+    }, { passive: true });
+    backTop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+    });
+  }
+
+  // 页脚年份
+  document.getElementById('year').textContent = new Date().getFullYear();
+})();
+
+  // 数字增长动效
+
+  // 鼠标 hover 时触发数字增长动效
+  document.querySelectorAll('.stat-num[data-target]').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      animateCountUp(el);
+    });
+    // 初始显示 0
+    el.textContent = '0' + (el.dataset.suffix || '');
+  });
+
+  function animateCountUp(el) {
+    const target = parseInt(el.dataset.target);
+    const suffix = el.dataset.suffix || '';
+    const duration = 1500;
+    const start = performance.now();
+    
+    function update(currentTime) {
+      const elapsed = currentTime - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+      const current = Math.round(eased * target);
+      el.textContent = current + suffix;
+      if (progress < 1) requestAnimationFrame(update);
+    }
+    requestAnimationFrame(update);
+  }
+
+  function copyText(text, btn) {
+    navigator.clipboard.writeText(text).then(() => {
+      const orig = btn.textContent;
+      btn.textContent = '已复制';
+      btn.style.color = 'var(--accent)';
+      setTimeout(() => { btn.textContent = orig; btn.style.color = ''; }, 1500);
+    });
+  }
+</script>
+</body>
+</html>
